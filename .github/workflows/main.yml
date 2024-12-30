@@ -11,15 +11,12 @@ jobs:
             issues: write
             pull-requests: write
         runs-on: ubuntu:latest
-        name: Execução de Custom Action
+        name: Execução de Custom Action (Docker)
         steps:
             - name: Adicionando Comentário
-            #   uses: ventocilla/action-js@main
-              uses: ventocilla/action-composite@main
+              uses: ventocilla/action-docker@main
               with:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
                 issue-id: ${{ github.event.issue.number }} 
-                comment: "Teste de comentário composite"
-            # - name: Mostrar o ID do Comentário
-            #   run: |
-            #     echo "ID do comentário é ${{ steps.comment }}"
+                comment: "Teste de comentário docker"
+                GITHUB_REPOSITORY: ${{ github.repository }}
