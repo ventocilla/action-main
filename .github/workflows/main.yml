@@ -14,8 +14,12 @@ jobs:
         name: Execução de Custom Action
         steps:
             - name: Adicionando Comentário
-              uses: ventocilla/action-js@main
+            #   uses: ventocilla/action-js@main
+              uses: ventocilla/action-composite@main
               with:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
                 issue-id: ${{ github.event.issue.number }} 
-                comment: "Teste de comentário"
+                comment: "Teste de comentário composite"
+            # - name: Mostrar o ID do Comentário
+            #   run: |
+            #     echo "ID do comentário é ${{ steps.comment }}"
